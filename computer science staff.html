@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> computer science staff</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: gray;
+        }
+
+        .container {
+            width: 400px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .di {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-image: url("https://th.bing.com/th/id/OIP.z73LLXkn_75wMVI7SLjAnwHaHa?w=177&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .num {
+            width: 290px;
+            height: 40px;
+            background: none;
+            border: none;
+            padding: 10px;
+            border-bottom-style: solid;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            color: white;
+            font-size: large;
+        }
+
+        .num::placeholder {
+            color: white;
+            font-size: large;
+        }
+
+        button {
+            width: 130px;
+            height: 45px;
+            border-radius: 20px;
+            font-size: large;
+            color: rgb(0, 0, 0);
+            background-color: rgb(215, 199, 199);
+            border: none;
+            cursor: pointer;
+        }
+
+        h1 {
+            color: rgb(236, 219, 219);
+            text-align: center;
+        }
+
+        #wrong {
+            color: red;
+            margin-top: 10px;
+        }
+
+        @media screen and (max-width: 450px) {
+            .container {
+                width: 300px;
+                height: 550px;
+            }
+
+            .num {
+                width: 240px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Computer Science Department Staff</h1>
+        <div id="box" class="di"></div>
+        <input type="text" class="num" id="inputvalue" placeholder="Enter staff name" list="staff">
+        <datalist id="staff">
+            <option value="DR.D.I.GEORGE AMALARETHINAM"></option>
+            <option value="DR.T.ABDUL RAZAK"></option>
+            <option value="DR.A.R.MOHAMED SHANAVAS"></option>
+            <option value="DR.S.MOHAMED ILIYAS"></option>
+            <option value="DR. M.A.JAMAL MOHAMED YASEEN ZUBEIR"></option>
+            <option value="DR. M. WASIM RAJA"></option>
+            <option value="DR. K.N. ABDUL KADER NIHAL"></option>
+            <option value="DR. G.RAVI"></option>
+            <option value="DR. M. MOHAMED SURPUTHEEN"></option>
+            <option value="M.ABDULLAH"></option>
+            <option value="DR. S.ABDUL SALEEM"></option>
+            <option value="S.SYED IBRAHIM"></option>
+            <option value="A.JAINULABUDEEN"></option>
+            <option value="DR. O.S.ABDUL QADIR"></option>
+            <option value="P.SHAIK ABDULLA"></option>
+            <option value="DR. S.A.JAMEEL"></option>
+            <option value="DR. MOZIBUR RAHEMAN KHAN"></option>
+            <option value="DR. K.SYED KOUSAR NIASI"></option>
+            <option value="Z.HARITH AHAMED"></option>
+            <option value="DR. B. MOHAMED FAIZE BASHA"></option>
+            <option value="A.ABDUL SAMATHU"></option>
+            <option value="M.KAMAL"></option>
+            <option value="S. MOHAMED IDRIS"></option>
+            <option value="M. RIYAZ MOHAMMED"></option>
+            <option value="L. IMMAMDEEN"></option>
+            <option value="S. BALASUBRAMANIAN"></option>
+            <option value="DR. K. NAFEES AHAMED"></option>
+            <option value="DR. S. PEERBASHA"></option>
+            <option value="DR. R. INBARAJ"></option>
+            <option value="A.U. SHABEER AHAMED"></option>
+            <option value="A. BASHEER AHAMED"></option>
+            <option value="B. MOHAMED ASIF"></option>
+            <option value="K. ANWAR SATHIK"></option>
+            <option value="N. NAGOOR MEERA"></option>
+            <option value="K.A. USAIF AHAMED"></option>
+            <option value="DR. S. RASHEED MANSOOR ALI"></option>
+            <option value="M. RAGAMATH ALI"></option>
+            <option value="I. SIDDIK"></option>
+            <option value="T. JAVITH HUSSAIN"></option>
+            <option value="A. MOHAMED ASHAR ALI"></option>
+            <option value="DR. M.SABIBULLAH"></option>
+            <option value="K. MOHAMED ARIF KHAN"></option>
+            <option value="DR. M. RAJAKUMAR"></option>
+            <option value="Y. MOHAMMED IQBAL"></option>
+            <option value="DR. C. AGILAN"></option>
+            <option value="DR. S. PRABHAKARAN"></option>
+        </datalist>
+        <button onclick="change()">Check</button>
+        <p id="wrong"></p>
+    </div>
+    <footer>
+        &copy;mohamed shalim-07.07.2024-12.03AM
+    </footer>
+    <script>
+        function change() {
+            var inputvalue = document.getElementById("inputvalue").value.trim(); // trim added to remove extra spaces
+            var correctNames = {
+                "DR.D.I.GEORGE AMALARETHINAM": 'https://jmc.edu/include/department/cs/staff/profile/DIG-Principal-Profile-17.06.24.pdf',
+                "DR.T.ABDUL RAZAK": 'https://jmc.edu/include/department/cs/staff/profile/AR-NEW-23.pdf',
+                "DR.A.R.MOHAMED SHANAVAS": 'https://jmc.edu/include/department/cs/staff/profile/ARS-2024.pdf',
+                "DR.S.MOHAMED ILIYAS": 'https://jmc.edu/include/department/cs/staff/profile/SMI%20Resume%2001-05-2022.pdf',
+                "DR. M.A.JAMAL MOHAMED YASEEN ZUBEIR": 'https://jmc.edu/include/department/cs/staff/profile/DR.YASEEN-ZUBEIR-Aided-13-03-2024.pdf',
+                "DR. M. WASIM RAJA": 'https://jmc.edu/include/department/cs/staff/profile/Dr.M.WASIM-RAJA-CS-Aided-13-03-2024.pdf',
+                "DR. K.N. ABDUL KADER NIHAL": 'https://jmc.edu/include/department/cs/staff/profile/akn.pdf',
+                "DR. G.RAVI": 'https://jmc.edu/include/department/cs/staff/profile/DR_G_RAVI-06-04-2023.pdf',
+                "DR. M. MOHAMED SURPUTHEEN": 'https://jmc.edu/include/department/cs/staff/profile/Dr.MMS-06-04-2023.pdf',
+                "M.ABDULLAH": 'https://jmc.edu/include/department/cs/staff/profile/PROF-MA-18-07-2023.pdf',
+                 "DR. S.ABDUL SALEEM":'https://jmc.edu/include/department/cs/staff/profile/Saleem_Resume-01-04-2023.pdf',
+                "S.SYED IBRAHIM": ' https://jmc.edu/include/department/cs/staff/profile/SI-NEW-23.pdf',
+                "A.JAINULABUDEEN": 'https://jmc.edu/include/department/cs/staff/profile/SI-NEW-23.pdf',
+                "DR. O.S.ABDUL QADIR": 'https://jmc.edu/include/department/cs/staff/profile/AJ.docx',
+                "P.SHAIK ABDULLA": ' https://jmc.edu/include/department/cs/staff/profile/PSA-bio.pdf',
+                "DR. S.A.JAMEEL": ' https://jmc.edu/include/department/cs/staff/profile/SAJ-Resume%2006-04-2023.pdf',
+                "DR. MOZIBUR RAHEMAN KHAN": ' https://jmc.edu/include/department/cs/staff/profile/MRK_NEW_RESUME.pdf',
+                "DR. K.SYED KOUSAR NIASI": 'https://jmc.edu/include/department/cs/staff/profile/SKN%20RESUME.pdf ',
+                "Z.HARITH AHAMED": ' https://jmc.edu/include/department/cs/staff/profile/ZHA%20profile%2006-04-2023.docx',
+                "DR. B. MOHAMED FAIZE BASHA": ' https://jmc.edu/include/department/cs/staff/profile/6.4.23.BMF%20NEW%20PROFILE.docx',
+                "A.ABDUL SAMATHU": ' https://jmc.edu/include/department/cs/staff/profile/AAS-PROFILE%20(1).pdf',
+                "M.KAMAL": 'https://jmc.edu/include/department/cs/staff/profile/MK%20%20Resume_17.04.23.docx ',
+                "S. MOHAMED IDRIS": ' https://jmc.edu/include/department/cs/staff/profile/mid%2006-04-2023.pdf',
+                "M. RIYAZ MOHAMMED": ' https://jmc.edu/include/department/cs/staff/profile/MRM%20APRIL23.pdf',
+                "L. IMMAMDEEN": 'https://jmc.edu/include/department/cs/staff/profile/LI%20RESUME.2023.doc',
+                "S. BALASUBRAMANIAN": 'https://jmc.edu/include/department/cs/staff/profile/sbs%20profile%20AS%20ON%2005.04.23.docx',
+                "DR. K. NAFEES AHAMED": 'https://jmc.edu/include/department/cs/staff/profile/KNA-Profile.docx',
+                "DR. S. PEERBASHA": 'https://jmc.edu/include/department/cs/staff/profile/Dr.%20S.%20Peerbasha%20As%20on%2006.04.2023.pdf',
+                "DR. R. INBARAJ": 'https://jmc.edu/include/department/cs/staff/profile/RI-RESUME-10-04-2023.pdf',
+                "A.U. SHABEER AHAMED": 'https://jmc.edu/include/department/cs/staff/profile/shabeer%20ahamed%20(AUS)%20as%20on%2006.04.2023.doc',
+                "A. BASHEER AHAMED": 'https://jmc.edu/include/department/cs/staff/profile/ABA_Profile_NEW%20(1).pdf',
+                "B. MOHAMED ASIF": 'https://jmc.edu/include/department/cs/staff/profile/asif%20profile.docx',
+                "K. ANWAR SATHIK": 'https://jmc.edu/include/department/cs/staff/profile/ka%2006-04-2023.docx',
+                "N. NAGOOR MEERA": 'https://jmc.edu/include/department/cs/staff/profile/nnm_updated.pdf',
+                "K.A. USAIF AHAMED": 'https://jmc.edu/include/department/cs/staff/profile/aua-profile%20(APR-2023).pdf',
+                "DR. S. RASHEED MANSOOR ALI": 'https://jmc.edu/include/department/cs/staff/profile/SRM%20Profile%20new.pdf',
+                "M. RAGAMATH ALI": 'https://jmc.edu/include/department/cs/staff/profile/mra_updated.pdf',
+                "I. SIDDIK": 'https://jmc.edu/include/department/cs/staff/profile/SIDDIK-Profile-06-04-2023.docx',
+                "T. JAVITH HUSSAIN": 'https://jmc.edu/include/department/cs/staff/profile/Javith-Profile-06-04-2023.docx',
+                "A. MOHAMED ASHAR ALI": 'https://jmc.edu/include/department/cs/staff/profile/AMD_AZHAR_CV_APR_2023.pdf',
+                "DR. M.SABIBULLAH": 'https://jmc.edu/include/department/cs/staff/profile/SABIBULLAH-Update-Resume-08-04-2023.pdf',
+                "K. MOHAMED ARIF KHAN": 'https://jmc.edu/include/department/cs/staff/profile/KAK%20profile%20as%20on%205.4.2023.docx',
+                "DR. M. RAJAKUMAR": 'https://jmc.edu/include/department/cs/staff/profile/RAJAKUMAR-IT.docx',
+                "Y. MOHAMMED IQBAL": 'https://jmc.edu/include/department/cs/staff/profile/Y.Mohammed-Iqbal-Profile-14.04.2023.pdf',
+                "DR. C. AGILAN": 'https://jmc.edu/include/department/cs/staff/profile/Agilan-Profile-01-03-23.pdf',
+                "DR. S. PRABHAKARAN": 'https://jmc.edu/include/department/cs/staff/profile/RESUME-S.PRABHAKARAN.pdf'
+            };
+
+            if (inputvalue in correctNames) {
+                window.location.href = correctNames[inputvalue];
+            } else {
+                var inputField = document.getElementById("inputvalue");
+                inputField.style.boxShadow = "inset 0 0 20px red";
+                inputField.style.border = "1px solid red";
+                inputField.style.borderRadius = "5px";
+                var errorText = document.getElementById("wrong");
+                errorText.textContent = "Wrong name";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
